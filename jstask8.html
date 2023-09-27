@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-8 of javascript</title>
+    <style>
+        table{
+            border-spacing: 15px;
+        }
+        .container{
+            background:linear-gradient(to bottom,blanchedalmond,rgb(230, 117, 196)) ;
+            margin-left: 350px;
+            margin-right: 350px;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+    <form>
+        <table border="0" align="center">
+            <caption style="font-size: 25px; color: blue; margin-bottom: 15px;"><b>Registration form</b></caption>
+        <tr>
+            <td><label for="fn" style="margin-left: 45px;"><b>First Name</b></label></td>
+            <td><input type="text" id="fn" size="50" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="ln" style="margin-left: 48px;"><b>Last Name</b></label></td>
+            <td><input type="text" id="ln" size="50" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg1" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="mail" style="margin-left: 81px;"><b>Email</b></label></td>
+            <td><input type="email" id="mail" size="50" onkeyup="checkStrength()" autocomplete="off" required></td>
+            <td><span id="msg2" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="pwd" style="margin-left: 57px;"><b>Password</b></label></td>
+            <td><input type="password" id="pwd" size="50" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg3" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="repwd"><b>Re-enter Password</b></label></td>
+            <td><input type="password" id="repwd" size="50" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg4" style="color: red;">POOR OR MISMATCH</span></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><label for="gender" style="margin-left: 75px;"><b>Gender</b></label></td>
+            <td><input type="radio" id="gender" checked>Male</td>
+        </tr>
+        <tr>
+            <td><input type="radio" id="gender">Female</td>
+        </tr>
+        <tr>
+            <td><label for="age" style="margin-left: 95px;"><b>Age</b></label></td>
+            <td><input type="number" id="age" style="width: 361px;" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg5" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="phone" style="margin-left: 17px;"><b>Phone Number</b></label></td>
+            <td><input type="number" id="phone" style="width: 361px;" onkeyup="checkStrength()" autocomplete="off" required></td>
+            <td><span id="msg6" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="add" style="margin-left: 65px;"><b>Address</b></label></td>
+            <td><textarea id="add" cols="47" rows="10" autocomplete="off" onkeyup="checkStrength()"></textarea></td>
+            <td><span id="msg7" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="state" style="margin-left: 90px;"><b>State</b></label></td>
+            <td><input type="text" id="state" size="50" autocomplete="off" onkeyup="checkStrength()" required></td>
+            <td><span id="msg8" style="color: red;">POOR</span></td>
+        </tr>
+        <tr>
+            <td><label for="country" style="margin-left: 65px;"><b>Country</b></label></td>
+            <td>
+                <select>
+                    <option>Choose your country</option>
+                    <option>India</option>
+                    <option>USA</option>
+                    <option>UK</option>
+                    <option>Norway</option>
+                    <option>Russia</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td><label for="languages"><b>Languages known</b></label></td>
+            <td colspan="4">
+                <input type="checkbox" id="languages">English
+                <input type="checkbox" id="languages">Kannada
+                <input type="checkbox" id="languages">Hindi
+                <input type="checkbox" id="languages">Telugu
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="checkbox" checked>Hereby I declare all the given details are true</td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">Log in to <a href="https://www.ethnus.com">Ethnus</a>website</td>
+        </tr>
+        </table>  
+        <button type="submit" style="margin-left: 350px; border-radius: 10px; color: #fff; background-color: red; font-family: 'Times New Roman'; padding-left: 10px; padding-right: 10px;">REGISTER</button>               
+    </form>
+  </div>
+
+    <script>
+         function checkStrength() 
+         {
+            var fname = document.getElementById("fn").value;
+            if (fname.length === 0) {
+                document.getElementById("msg").innerText = "POOR";
+                document.getElementById("msg").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg").innerText = "";
+            }
+            var lname = document.getElementById("ln").value;
+            if (lname.length === 0) {
+                document.getElementById("msg1").innerText = "POOR";
+                document.getElementById("msg1").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg1").innerText = "";
+            }
+            var email = document.getElementById("mail").value;
+            if (email.length === 0) {
+                document.getElementById("msg2").innerText = "POOR";
+                document.getElementById("msg2").style.color = "red";
+            } 
+            else{
+                document.getElementById("msg2").innerText = "";
+            }
+            var password = document.getElementById("pwd").value;
+            if (password.length === 0) {
+                document.getElementById("msg3").innerText = "POOR";
+                document.getElementById("msg3").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg3").innerText = "";
+            }
+            var repassword = document.getElementById("repwd").value;
+            if (repassword.length === 0) {
+                document.getElementById("msg4").innerText = "POOR OR MISMATCH";
+                document.getElementById("msg4").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg4").innerText = "";
+            }
+            var age = document.getElementById("age").value;
+            if (age.length === 0) {
+                document.getElementById("msg5").innerText = "POOR";
+                document.getElementById("msg5").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg5").innerText = "";
+            }
+            var phonenumber = document.getElementById("phone").value;
+            if (phonenumber.length === 0) {
+                document.getElementById("msg6").innerText = "POOR";
+                document.getElementById("msg6").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg6").innerText = "";
+            }
+            var address = document.getElementById("add").value;
+            if (address.length === 0) {
+                document.getElementById("msg7").innerText = "POOR";
+                document.getElementById("msg7").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg7").innerText = "";
+            }
+            var state = document.getElementById("state").value;
+            if (state.length === 0) {
+                document.getElementById("msg8").innerText = "POOR";
+                document.getElementById("msg8").style.color = "red";
+            } 
+            else {
+                document.getElementById("msg8").innerText = "";
+            }
+            
+        }
+    </script>
+</body>
+</html>

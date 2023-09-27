@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-5 of javascript</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        label,input{
+            margin-bottom: 15px;
+        }
+        #i1{
+            margin-left: 20px;
+        }
+        #i2{
+            margin-left: 5px;
+        }
+        textarea{
+            vertical-align: top;
+            height: 80px;
+            width: 200px;
+        }
+        #btn{
+            margin-left: 60px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .form-control.success input,
+        .form-control.error input,
+        .form-control.success textarea,
+        .form-control.error textarea{
+            border-width: 3px;
+            border-color: rgb(69, 194, 69);
+        }
+        .form-control.error input,
+        .form-control.error textarea{
+            border-color: red;
+        }
+        .form-control small{
+            color: red;
+            visibility: hidden;
+        }
+        .form-control.error small{
+            visibility: visible;
+            margin-left: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="forms">
+            <div class="form-control">
+                <label for="name" id="i1">Name:</label>
+                <input type="text" id="name" autocomplete="off">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label for="mail" id="i1">Email:</label>
+                <input type="email" id="mail" autocomplete="off">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label for="web" id="i2">Website:</label>
+                <input type="url" id="web" autocomplete="off">
+                <small></small>
+            </div>
+            <div class="form-control">
+                <label for="mes">Message:</label>
+                <textarea name="mes" id="mes" autocomplete="off"></textarea>
+                <small></small>
+            </div>
+            <div>
+                <button id="btn" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+       const form = document.getElementById("forms");
+       const name = document.getElementById("name");
+       const email = document.getElementById("mail");
+       const website = document.getElementById("web");
+       const message = document.getElementById("mes");
+
+       function errorMsg(input,msg)
+       {
+        const form_control = input.parentElement;
+        form_control.className = "form-control error";
+        const small = form_control.querySelector("Small");
+        small.innerText = msg;
+
+       }
+
+       form.addEventListener("submit",function(e){
+        e.preventDefault();
+        if(name.value===""){
+            errorMsg(name,"This field is required");
+        }
+        if(email.value===""){
+            errorMsg(email,"A valid email address is required");
+        }
+        if(website.value===""){
+            errorMsg(website,"A valid url is required");
+        }
+        if(message.value===""){
+            errorMsg(message,"This field is required");
+        }
+       })
+    </script>
+</body>
+</html>

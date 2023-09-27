@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap 3 Contact form with Validation</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+</head>
+<body>
+  <div class="container">
+    <form class="well form-horizontal" action="" method="post" id="contact_form">
+      <fieldset>
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="first_name"> Name</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+              <input id="first_name" name="first_name" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="email">E-Mail</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+              <input id="email" name="email" class="form-control" type="text">
+            </div>
+          </div>
+        </div>
+        
+       
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="city">Website</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
+              <input id="website" name="website"  class="form-control" type="url">
+            </div>
+          </div>
+        </div>
+      
+      
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="comment">Message</label>
+          <div class="col-md-4 inputGroupContainer">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+              <textarea id="comment" class="form-control" name="comment"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-md-4 control-label"></label>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-warning">Submit <span class="glyphicon glyphicon-send"></span></button>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#contact_form').bootstrapValidator({
+        feedbackIcons: {
+          valid: 'glyphicon glyphicon-ok',
+          invalid: 'glyphicon glyphicon-remove',
+          validating: 'glyphicon glyphicon-refresh'
+        },
+        fields: {
+          first_name: {
+            validators: {
+              notEmpty: {
+                message: 'The field is required'
+              }
+            }
+         
+          },
+          email: {
+            validators: {
+              notEmpty: {
+                message: 'A valid e-mail address is required'
+              },
+              emailAddress: {
+                message: 'Please supply a valid email address'
+              }
+            }
+         
+         
+          },
+          website: {
+            validators: {
+              notEmpty: {
+                message: 'A valid url is Required'
+              }
+            }
+         
+          },
+          comment: {
+            validators: {
+              notEmpty: {
+                message: 'The field is required'
+              }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

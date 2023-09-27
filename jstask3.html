@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-3 of javscript</title>
+    
+    <style>
+        body{
+            font-family: 'Times New Roman';
+        }
+        button{
+            margin-top: 4px;
+            border-radius: 5px;
+        }
+        #i1{
+            border-color: rgb(14, 176, 240);
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><label for="num1">1st Number:</label></td>
+            <td><input type="text" name="num1" id="i2"></td>
+        </tr>
+        <tr>
+            <td><label for="num2">2nd Number:</label></td>
+            <td><input type="text" name="num2" id="i3"></td>
+        </tr>
+    </table>
+    <button id="i1" onclick="multiply()">Multiply</button> &nbsp; 
+    <button onclick="divide()">Divide</button>
+    <p id="i4">The Result Is:</p>
+    <script>
+        function multiply()
+        {
+            var i2 = document.getElementById("i2").value;
+            var a= Number.parseInt(i2);
+            var i3 = document.getElementById("i3").value;
+            var b= Number.parseInt(i3);
+            var prod = a*b;
+            document.getElementById("i4").innerHTML="The Result Is: <br/>" +prod;
+        }
+        function divide()
+        {
+            var i2 = document.getElementById("i2").value;
+            var a = Number.parseInt(i2);
+            var i3 = document.getElementById("i3").value;
+            var b = Number.parseInt(i3);
+            var div = a/b;
+            document.getElementById("i4").innerHTML="The Result Is: <br/>"+div
+        }
+    </script>
+</body>
+</html>

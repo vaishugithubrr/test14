@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-7 of javascript</title>
+    <style>
+        h1{
+            color: rgb(63, 63, 194);
+            margin-left: 160px;
+        }
+        #start{
+            margin-left: 425px;
+        }
+        img {
+            position: relative;
+            left: 0;
+            animation: animation1 10s infinite;
+            animation-play-state: paused; /* Initially, animation is paused */
+        }
+
+        @keyframes animation1 {
+            from { left: 0%; }
+            to { left: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <img src="./train.jpg" id="pic" alt="image">
+    <h1>Click the following buttons to handle animation</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <script>
+        const pic = document.getElementById('pic');
+        const startBtn = document.getElementById('start');
+        const stopBtn = document.getElementById('stop');
+
+        let isAnimating = false;
+
+        startBtn.addEventListener('click', toggleAnimation);
+        stopBtn.addEventListener('click', toggleAnimation);
+
+        function toggleAnimation() {
+            if (!isAnimating) {
+                pic.style.animationPlayState = 'running'; // Start the animation
+                isAnimating = true;
+            } else {
+                pic.style.animationPlayState = 'paused'; // Pause the animation
+                isAnimating = false;
+            }
+        }
+    </script>
+</body>
+</html>

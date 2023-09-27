@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-4 of javascript</title>
+</head>
+<body>
+    <button onclick="date()">Show Date</button>
+    <p id="i1"></p>
+    <button onclick="time()">Show Time</button>
+    <p id="i2"></p>
+    <script>
+        function date()
+        {
+            const months=["January","February","March","April","May","June","July","August","September","October","November","December"];
+            var a = new Date();
+            var str = a.getDate() + "/" + months[a.getMonth()] + "/" + a.getFullYear();
+            document.getElementById("i1").innerHTML = str
+        }
+        function time()
+        {
+            document.getElementById("i2").innerHTML = Date();
+        }
+    </script>
+</body>
+</html>
